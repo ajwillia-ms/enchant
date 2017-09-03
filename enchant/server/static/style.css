@@ -1,0 +1,17 @@
+body {
+  background-color: whitesmoke;
+}
+
+#page {
+  background-color: white;
+  color: #333;
+}
+
+#header {
+  border-bottom: 1px solid whitesmoke;
+}
+
+#footer {
+  border-top: 1px solid whitesmoke;
+}
+

@@ -1,4 +1,4 @@
-from flask import Flask, abort
+from flask import Flask, abort, render_template
 from graphene import Enum, List, NonNull, ObjectType, String, Schema
 from flask_graphql import GraphQLView
 
@@ -27,15 +27,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "<h1>Enchant</h1>\n<p>Enchant is a cloud based CMS for managing multiple web sites quickly and easily.</p>"
+    return render_template('home.html', title='Enchant CMS')
 
 @app.route('/sites')
 def sitelist():
-    content = "<h1>Enchant Sites List</h1><ul>"
-    for site in (data.SITES):
-        content += "<li><a href=\"/sites/%s\">%s</a> \"%s\"</li>" % (site.name, site.name, site.title)
-    content += "</ul>"
-    return content
+    return render_template('sites.html', title='Enchant CMS Sites',
+            sitelist = data.SITES)
 
 @app.route('/sites/<sitename>')
 def site(sitename):
