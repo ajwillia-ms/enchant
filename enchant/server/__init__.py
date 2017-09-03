@@ -4,6 +4,18 @@ from flask_graphql import GraphQLView
 
 from enchant import model, data
 
+def get_site_or_abort(sitename):
+    site = model.get_site(data.SITES, sitename)
+    if site is None:
+        abort(404)
+    return site
+
+def get_page_or_abort(site, pagename):
+    page = site.get_page(pagename)
+    if page is None:
+        abort(404)
+    return page
+
 class Query(ObjectType):
     sites = model.ROOT
     def resolve_sites(self, args, context, info):
@@ -27,10 +39,7 @@ def sitelist():
 
 @app.route('/sites/<sitename>')
 def site(sitename):
-    try:
-        site = next(x for x in data.SITES if x.name == sitename)
-    except StopIteration:
-        abort(404)
+    site = get_site_or_abort(sitename)
 
     content = "<h1>%s</h1><p>Pages:<ul>" % (site.title)
     for page in (site.pages):
@@ -40,15 +49,8 @@ def site(sitename):
 
 @app.route('/sites/<sitename>/<pagename>')
 def page(sitename, pagename):
-    try:
-        site = next(x for x in data.SITES if x.name == sitename)
-    except StopIteration:
-        abort(404)
-
-    try:
-        page = next(x for x in site.pages if x.name == pagename)
-    except StopIteration:
-        abort(404)
+    site = get_site_or_abort(sitename)
+    page = get_page_or_abort(site, pagename)
 
     return "<h1>%s :: %s</h1>%s" % (site.title, page.title, page.content)
 
