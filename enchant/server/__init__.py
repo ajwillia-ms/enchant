@@ -1,5 +1,3 @@
-import os
-
 from flask import Flask, abort, render_template
 from graphene import Enum, List, NonNull, ObjectType, String, Schema
 from flask_graphql import GraphQLView
@@ -25,9 +23,7 @@ class Query(ObjectType):
 
 view_func = GraphQLView.as_view('graphql', schema=Schema(query=Query))
 
-thisdir = os.path.dirname(os.path.realpath(__file__))
-
-app = Flask(__name__, root_path=thisdir)
+app = Flask(__name__)
 
 @app.route('/')
 def index():
