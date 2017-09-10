@@ -2,6 +2,10 @@ html, body {
   text-align: center;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #page {
   width: 800pt;
   margin: 25pt auto;
@@ -9,7 +13,7 @@ html, body {
   text-align: justify;
 }
 
-#nav {
+#menu {
   width: 20%;
   float: left;
 }

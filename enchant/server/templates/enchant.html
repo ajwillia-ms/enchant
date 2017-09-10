@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block head %}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='enchant/layout.css') }}">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='enchant/style.css') }}">
+{% endblock %}
+
+{% block menu %}
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/sites">Sites</a></li>
+  </ul>
+{% endblock %}
+
+{% block footer %}
+  <p>social</p>
+{% endblock %}
+

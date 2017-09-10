@@ -1,8 +1,8 @@
-{% extends "host.html" %}
+{% extends "enchant.html" %}
 {% block body %}
 
   <h2>Sites hosted:</h2>
-  
+
   <ul>
   {% for site in sitelist %}
     <li><a href="/sites/{{ site.name }}">{{ site.name }}</a> "{{ site.title }}"</li>
