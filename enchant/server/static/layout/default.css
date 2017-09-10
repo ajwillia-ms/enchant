@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+#aside {
+  display: none;
+}
+
 /* Column based layout */
 /* Mobile */
 #header, #menu, #content, #aside, #footer {
@@ -24,13 +28,9 @@
     width: 75%;
     margin-left: 25%;
   }
-  #aside {
-    display: none;
-  }
   #footer {
     width: 75%;
     margin-left: 25%;
   }
 }
-
 
