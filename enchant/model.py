@@ -27,5 +27,3 @@ def get_site(sitelist, sitename):
     except StopIteration:
         return None
 
-ROOT = List(Site, description='Enchant Sites')
-

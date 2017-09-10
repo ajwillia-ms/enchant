@@ -17,7 +17,7 @@ def get_page_or_abort(site, pagename):
     return page
 
 class Query(ObjectType):
-    sites = model.ROOT
+    sites = List(model.Site, description='Enchant Sites')
     def resolve_sites(self, args, context, info):
         return data.SITES
 
