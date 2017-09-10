@@ -19,12 +19,15 @@ a {
   color: #fff;
 }
 
-#footer {
-  margin-top: 15pt;
-}
-
 #aside {
   background-color: #333745;
   color: #fff;
+}
+
+/* desktop adjustments */
+@media only screen and (min-width: 768px) {
+  #footer {
+    margin-top: 15pt;
+  }
 }
 
