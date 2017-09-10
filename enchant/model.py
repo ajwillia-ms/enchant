@@ -13,7 +13,7 @@ class Site(ObjectType):
     name = NonNull(String)
     title = NonNull(String)
     pages = List(Page)
-
+    footer = String
 
     def get_page(self, pagename):
         try:
