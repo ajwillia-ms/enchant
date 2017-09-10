@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% block head %}{% endblock %}
   </head>
@@ -9,7 +10,9 @@
   <body>
     <div id="page">
       <div id="header">
+        {% block header %}
         <h1>{{ title }}</h1>
+        {% endblock %}
       </div>
 
       <div id="body">
@@ -19,6 +22,10 @@
 
         <div id="content">
           {% block body %}{% endblock %}
+        </div>
+
+        <div id="aside">
+          {% block aside %}{% endblock %}
         </div>
       </div>
 

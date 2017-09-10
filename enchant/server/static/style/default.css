@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
+body {
+  background-color: #daede2;
+  color: #333745;
+  font-family: 'Dosis', sans-serif;
+}
+
+a {
+  color: #ea2e49;
+}
+
+#menu {
+  background-color: rgb(246, 247, 146);
+}
+
+#header, #footer {
+  background-color: #77c4d3;
+  color: #fff;
+}
+
+#footer {
+  margin-top: 15pt;
+}
+
+#aside {
+  background-color: #333745;
+  color: #fff;
+}
+

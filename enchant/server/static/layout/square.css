@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Column based layout */
+/* Mobile */
+#header, #menu, #content, #aside, #footer {
+  width: 100%;
+  float: left;
+  padding: 15px;
+}
+@media only screen and (min-width: 768px) {
+  /* Desktop */
+  #header {
+     width: 100%;
+  }
+  #menu {
+     width: 25%;
+  }
+  #content {
+     width: 50%;
+  }
+  #aside {
+     width: 25%;
+  }
+  #footer {
+     width: 100%;
+  }
+}
+

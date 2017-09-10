@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block head %}
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='layout/default.css') }}">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style/default.css') }}">
+{% endblock %}
+
+{% block header %}
+<h1>{{ page.title }}</h1>
+{% endblock %}
+
+{% block menu %}
+  <ul>
+  {% for page in site.pages %}
+    <li><a href="/sites/{{ site.name }}/{{ page.name }}">{{ page.title }}</a></li>
+  {% endfor %}
+  </ul>
+{% endblock %}
+
+{% block body %}
+  {{ page.content | safe }}
+{% endblock %}
+
+{% block aside %}
+  <p>aside</p>
+{% endblock %}
+
+{% block footer %}
+  <p>footer</p>
+{% endblock %}
+

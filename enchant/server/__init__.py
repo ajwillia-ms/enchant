@@ -38,18 +38,14 @@ def sitelist():
 def site(sitename):
     site = get_site_or_abort(sitename)
 
-    content = "<h1>%s</h1><p>Pages:<ul>" % (site.title)
-    for page in (site.pages):
-         content += "<li><a href=\"/sites/%s/%s\">%s</a> \"%s\"</li>" % (site.name, page.name, page.name, page.title)
-    content += "</ul></p>"
-    return content
+    return render_template('hosted.html', site=site, page=site.pages[0])
 
 @app.route('/sites/<sitename>/<pagename>')
 def page(sitename, pagename):
     site = get_site_or_abort(sitename)
     page = get_page_or_abort(site, pagename)
 
-    return "<h1>%s :: %s</h1>%s" % (site.title, page.title, page.content)
+    return render_template('hosted.html', site=site, page=page)
 
 app.add_url_rule('/api', view_func=view_func)
 
