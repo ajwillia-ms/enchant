@@ -1,8 +1,8 @@
 from flask import Flask, abort, render_template
-from graphene import Enum, List, NonNull, ObjectType, String, Schema
-from flask_graphql import GraphQLView
+from graphene import Enum, List, NonNull, ObjectType, String
 
 from enchant import model, data
+from enchant.server import api
 
 def get_site_or_abort(sitename):
     site = model.get_site(data.SITES, sitename)
@@ -15,13 +15,6 @@ def get_page_or_abort(site, pagename):
     if page is None:
         abort(404)
     return page
-
-class Query(ObjectType):
-    sites = List(model.Site, description='Enchant Sites')
-    def resolve_sites(self, args, context, info):
-        return data.SITES
-
-view_func = GraphQLView.as_view('graphql', schema=Schema(query=Query))
 
 app = Flask(__name__)
 
@@ -47,7 +40,7 @@ def page(sitename, pagename):
 
     return render_template('hosted.html', site=site, page=page)
 
-app.add_url_rule('/api', view_func=view_func)
+app.add_url_rule('/api', view_func=api.endpoint)
 
 if __name__ == '__main__':
     app.run()
