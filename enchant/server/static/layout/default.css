@@ -15,14 +15,18 @@
 }
 @media only screen and (min-width: 768px) {
   /* Desktop */
+  #page {
+    max-width: 860pt;
+    margin: 0 auto;
+  }
+
   #header {
     width: 75%;
     margin-left: 25%;
   }
   #menu {
-    position:fixed;
+    float: initial;
     width: 25%;
-    height: 98%;
   }
   #content {
     width: 75%;
