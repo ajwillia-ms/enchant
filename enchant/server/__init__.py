@@ -1,5 +1,4 @@
 from flask import Flask, abort, render_template
-from graphene import Enum, List, NonNull, ObjectType, String
 
 from enchant import model, data
 from enchant.server import api
@@ -31,6 +30,8 @@ def sitelist():
 def site(sitename):
     site = get_site_or_abort(sitename)
 
+    if len(site.pages) == 0:
+        abort(404)
     return render_template('hosted.html', site=site, page=site.pages[0])
 
 @app.route('/sites/<sitename>/<pagename>')
