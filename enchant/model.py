@@ -6,14 +6,31 @@ class PageType(Enum):
 class Page(ObjectType):
     name = NonNull(String)
     title = NonNull(String)
-    content = NonNull(String)
     contenttype = PageType
+    content = String
+
+    def __init__(self, name, title, contenttype):
+        self.name = name
+        self.title = title
+        self.contenttype = contenttype
+        self.content = ''
+
+class HTMLPage(Page):
+
+    def __init__(self, name, title, content):
+        super(HTMLPage, self).__init__(name, title, PageType.HTML)
+        self.content = content
 
 class Site(ObjectType):
     name = NonNull(String)
     title = NonNull(String)
     pages = List(Page)
     footer = String
+
+    def __init__(self, name, title):
+        self.name = name
+        self.title = title
+        self.pages = []
 
     def get_page(self, pagename):
         try:
