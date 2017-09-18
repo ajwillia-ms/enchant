@@ -9,4 +9,8 @@
   {% endfor %}
   </ul>
 
+  {% if session['user'] %}
+    <div id="addsite"></div>
+  {% endif %}
+ 
 {% endblock %}

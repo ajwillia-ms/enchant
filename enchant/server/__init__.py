@@ -1,4 +1,4 @@
-from flask import Flask, abort, render_template
+from flask import Flask, abort, session, redirect, render_template
 
 from enchant import model, data
 from enchant.server import api
@@ -21,6 +21,19 @@ app = Flask(__name__)
 def index():
     return render_template('home.html', title='Enchant CMS')
 
+
+@app.route('/login')
+def login():
+    session['user'] = 'admin'
+    return redirect('/')
+
+
+@app.route('/logout')
+def logout():
+    session['user'] = None
+    return redirect('/')
+
+
 @app.route('/sites')
 def sitelist():
     return render_template('sites.html', title='Enchant CMS Sites',
@@ -40,6 +53,8 @@ def page(sitename, pagename):
     page = get_page_or_abort(site, pagename)
 
     return render_template('hosted.html', site=site, page=page)
+
+app.secret_key = 'faww3r3jarwc54=c5Y3-543-5avS2'
 
 app.add_url_rule('/api', view_func=api.endpoint)
 
