@@ -1,7 +1,6 @@
 <!doctype html>
 <html>
   <head>
-    <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% block head %}{% endblock %}
@@ -9,36 +8,41 @@
 
   <body>
     <div id="page">
-      <div id="header">
-        {% block header %}
-        <h1>{{ title }}</h1>
-        {% endblock %}
-      </div>
-
-      <div id="body">
-        <div id="menu">
-          {% block menu %}{% endblock %}
-
-          <ul>
-          {% if session['user'] %}
-            <li><a href="/logout">Log Out</a></li>
-          {% else %}
-            <li><a href="/login">Log In</a></li>
-          {% endif %}
-          </ul>
-        </div>
-
-        <div id="content">
-          {% block body %}{% endblock %}
-        </div>
-
-        <div id="aside">
-          {% block aside %}{% endblock %}
+      <div id="top">
+        <div id="header">
+          {% block header %}
+          <h1>{{ title }}</h1>
+          {% endblock %}
         </div>
       </div>
 
-      <div id="footer">
-        {% block footer %}{% endblock %}
+      <div id="middle">
+        <div id="body">
+          <div id="menu">
+            {% block menu %}{% endblock %}
+
+            <ul>
+            {% if session['user'] %}
+              <li><a href="/logout">Log Out</a></li>
+            {% else %}
+              <li><a href="/login">Log In</a></li>
+            {% endif %}
+            </ul>
+          </div>
+
+          <div id="content">
+            {% block body %}{% endblock %}
+          </div>
+
+          <div id="aside">
+            {% block aside %}{% endblock %}
+          </div>
+        </div>
+      </div>
+      <div id="bottom">
+        <div id="footer">
+          {% block footer %}{% endblock %}
+        </div>
       </div>
     </div>
 

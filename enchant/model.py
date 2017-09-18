@@ -1,7 +1,9 @@
-from graphene import Enum, List, NonNull, ObjectType, String, Schema
+from graphene import Enum, List, NonNull, ObjectType, String
+
 
 class PageType(Enum):
     HTML = 1
+
 
 class Page(ObjectType):
     name = NonNull(String)
@@ -21,6 +23,7 @@ class HTMLPage(Page):
         super(HTMLPage, self).__init__(name, title, PageType.HTML)
         self.content = content
 
+
 class Site(ObjectType):
     name = NonNull(String)
     title = NonNull(String)
@@ -34,9 +37,11 @@ class Site(ObjectType):
 
     def get_page(self, pagename):
         try:
+            # noinspection PyTypeChecker
             return next(x for x in self.pages if x.name == pagename)
         except StopIteration:
             return None
+
 
 def get_site(sitelist, sitename):
     try:
@@ -44,3 +49,8 @@ def get_site(sitelist, sitename):
     except StopIteration:
         return None
 
+<<<<<<< HEAD
+=======
+
+ROOT = List(Site, description='Enchant Sites')
+>>>>>>> c7dc4018d80f698a4581402a17bd4ddb87e02ec4

@@ -1,11 +1,13 @@
 {% extends "enchant.html" %}
+{% set title = 'Sites' %}
+
 {% block body %}
 
   <h2>Sites hosted:</h2>
 
   <ul>
   {% for site in sitelist %}
-    <li><a href="/sites/{{ site.name }}">{{ site.name }}</a> "{{ site.title }}"</li>
+    <li><a href="/sites/{{ site.name }}/">{{ site.name }}</a> "{{ site.title }}"</li>
   {% endfor %}
   </ul>
 

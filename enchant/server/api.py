@@ -5,8 +5,11 @@ from enchant import model, data
 
 class Query(ObjectType):
     sites = List(model.Site, description='Enchant Sites')
+
+    # noinspection PyMethodMayBeStatic, PyUnusedLocal
     def resolve_sites(self, args, context, info):
         return data.SITES
+
 
 class CreateSite(Mutation):
     class Input:
@@ -29,6 +32,7 @@ class CreateSite(Mutation):
 
         ok = True
         return CreateSite(site=site, ok=ok)
+
 
 class Mutations(ObjectType):
     create_site = CreateSite.Field()
