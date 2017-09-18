@@ -1,16 +1,33 @@
 html, body {
   text-align: center;
+  margin: 0;
 }
 
 * {
   box-sizing: border-box;
 }
 
-#page {
+#top {
+  padding-top: 25pt;
+}
+
+#middle {
+  overflow: hidden;
+}
+
+#bottom {
+  clear: both;
+  padding-bottom: 25pt;
+}
+
+#header, #body, #footer {
   width: 800pt;
-  margin: 25pt auto;
+  margin: 0 auto;
   padding: 10pt;
   text-align: justify;
+}
+
+#header {
 }
 
 #menu {
@@ -18,11 +35,13 @@ html, body {
   float: left;
 }
 
+#body {
+  overflow: hidden;
+}
+
 #content {
   margin-left: 20%;
 }
 
 #footer {
-  clear: both;
 }
-
