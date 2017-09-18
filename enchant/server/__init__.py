@@ -34,13 +34,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('home.html', title='Enchant CMS')
+    return render_template('home.html')
 
 
 @app.route('/sites')
 def serve_sites():
-    return render_template('sites.html', title='Enchant CMS Sites',
-                           sitelist=data.SITES)
+    return render_template('sites.html', sitelist=data.SITES)
 
 
 @app.route('/sites/<sitename>/')

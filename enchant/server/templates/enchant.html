@@ -1,7 +1,16 @@
 {% extends "layout.html" %}
+{% macro enchant_title() -%}
+  Enchant CMS{% if title %} :: {{ title }}{% endif %}
+{%- endmacro %}
 {% block head %}
+  <title>{{ enchant_title() }}</title>
+
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='enchant/layout.css') }}">
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='enchant/style.css') }}">
+{% endblock %}
+
+{% block header %}
+<h1>{{ enchant_title() }}</h1>
 {% endblock %}
 
 {% block menu %}
