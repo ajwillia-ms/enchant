@@ -43,7 +43,7 @@ def serve_sites():
                            sitelist=data.SITES)
 
 
-@app.route('/sites/<sitename>')
+@app.route('/sites/<sitename>/')
 def serve_site(sitename):
     site = get_site_or_abort(sitename)
 
