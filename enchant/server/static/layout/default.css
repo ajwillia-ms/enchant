@@ -27,6 +27,7 @@
   #menu {
     float: initial;
     width: 25%;
+    margin-top: -85pt;
   }
   #content {
     width: 75%;
