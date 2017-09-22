@@ -21,6 +21,7 @@
   }
 
   #header {
+    float: inherit;
     width: 75%;
     margin-left: 25%;
   }
